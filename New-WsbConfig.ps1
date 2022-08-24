@@ -63,6 +63,22 @@ if((Test-Path -Path "$SoftwareInstallFile") -ne $true){
    }
 }
 
+##--- Create setup.cmd file
+$SetupCommandFile = "$SoftwareInstallDir\setup.cmd"
+
+Write-Verbose -Message "Checking for $SetupCommandFile"
+if((Test-Path -Path "$SetupCommandFile") -ne $true){
+   try{
+      Write-Verbose -Message "Creating file $SetupCommandFile"
+      New-Item -Path "$SetupCommandFile" -ItemType File
+   } catch {
+      $ErrorMessage = $_.Exception.Message
+	   Write-Error $ErrorMessage
+      $FailedItem = $_.Exception.ItemName
+	   Write-Error $FailedItem
+   }
+}
+
 
 ##--- Custom Directories
 [array]$CustomDirArr = $CustomDirectories.Split(",").Trim()
