@@ -129,7 +129,7 @@ $WsbXmlMappedFolderEnd = @"
 
 $WsbXmlLogonBegin = @"
 <LogonCommand>
-   <Command>powershell.exe -ExecutionPolicy Unrestricted -Command "Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force"</Command>
+   <Command>powershell.exe -ExecutionPolicy ByPass -NoProfile -WindowStyle Normal -File "C:\Users\WDAGUtilityAccount\Desktop\$(Split-Path -Path $WorkingDirectory -Leaf)\Software Installs\Install-WsbSoftware.ps1"</Command>
 "@
 
 $WsbXmlLogonEnd = @"
