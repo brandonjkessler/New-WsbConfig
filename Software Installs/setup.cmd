@@ -1,1 +1,0 @@
-powershell.exe -File "%~dp0Install-WsbSoftware.ps1"
